@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="jUnit">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../Htan/eclipse"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="JUnit 4.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.junit_4.11.0.v201303080030/junit.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+    </path>
+    <path id="jUnit.classpath">
+        <pathelement location="bin"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="jUnit.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="ExecutionProcedureJunit">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="executionProcedure.ExecutionProcedureJunit" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="JavaTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="fixtures.JavaTest" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="JunitAnnotation">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="JunitAnnotation.JunitAnnotation" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="junitFramework.afterClass1">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="jUnit.junitFramework" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="junitFramework.ExecuteAgain">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="jUnit.junitFramework" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="junitFramework.ExecuteMe">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="jUnit.junitFramework" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="junitFramework.ExecuteMe1">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="jUnit.junitFramework" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="junitFramework.ExecuteMeAgain">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="jUnit.junitFramework" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="junitFramework">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="jUnit.junitFramework" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="junitFramework.runMe">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="jUnit.junitFramework" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="JunitTestSuite (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="suiteTest.JunitTestSuite" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="JunitTestSuite">
+        <java classname="sample5.JunitTestSuite" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="parameterizedTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="parameterizedTest.PrimeNumberCheckerTest" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="PrimeNumberCheckerTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="parameterizedTest.PrimeNumberCheckerTest" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestAssertions">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="assertion.TestAssertions" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestEmployeeDetails (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sample6.TestEmployeeDetails" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestJunit (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="ignoreTest.TestJunit" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestJunit (2)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="exceptionsTest.TestJunit" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestJunit">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sample3.TestJunit" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestJunit1 (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sample4.TestJunit1" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestJunit1 (2)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="suiteTest.TestJunit1" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestJunit1 (3)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sample1.TestJunit1" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestJunit2 (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sample5.TestJunit2" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestJunit2 (2)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="suiteTest.TestJunit2" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestJunit2">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sample2.TestJunit2" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestJunit3">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="sample5.TestJunit3" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestMessageUtil">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="testJunitWithAnt.TestMessageUtil" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="TestRunner (1)">
+        <java classname="sample2.TestRunner" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner (2)">
+        <java classname="sample3.TestRunner" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner (3)">
+        <java classname="sample6.TestRunner" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner (4)">
+        <java classname="JunitAnnotation.TestRunner" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner (5)">
+        <java classname="executionProcedure.TestRunner" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner (6)">
+        <java classname="suiteTest.TestRunner" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner (7)">
+        <java classname="ignoreTest.TestRunner" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner (8)">
+        <java classname="exceptionsTest.TestRunner" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner (9)">
+        <java classname="parameterizedTest.TestRunner" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner">
+        <java classname="sample1.TestRunner" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner1 (1)">
+        <java classname="sample1.TestRunner1" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner1">
+        <java classname="sample4.TestRunner1" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner2 (1)">
+        <java classname="assertion.TestRunner2" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner2">
+        <java classname="sample5.TestRunner2" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestRunner3">
+        <java classname="sample5.TestRunner3" failonerror="true" fork="yes">
+            <classpath refid="jUnit.classpath"/>
+        </java>
+    </target>
+    <target name="TestMessageUtil (2)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="plugwithANT.TestMessageUtil" todir="${junit.output.dir}"/>
+            <classpath refid="jUnit.classpath"/>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>
